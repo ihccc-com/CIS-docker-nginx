@@ -10,8 +10,11 @@
 git clone https://github.com/ihccc-com/cis-docker-nginx.git
 cd cis-docker-nginx
 
-# 2. 修改 docker-compose.yml 中的 image 地址
-# image: ihccccom/nginx:latest
+# 2.容器限制
+# 如需启用 Seccomp，取消下行注释：
+# - seccomp=./security/seccomp/nginx-seccomp.json
+# 如需启用 AppArmor，取消下行注释（需先在宿主机加载 profile）：
+# - apparmor=docker-nginx
 
 # 3. 启动容器
 docker compose up -d
