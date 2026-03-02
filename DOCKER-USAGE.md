@@ -41,18 +41,7 @@ curl -k https://localhost/
 
 ## 使用预构建镜像（推荐）
 
-### 步骤 1：登录 Docker Hub（私有仓库需要）
-
-如果镜像仓库是公开的，可跳过此步骤。
-
-```bash
-# 将 Token 保存到文件，避免在命令行直接暴露
-echo "你的TOKEN" > ~/.dockerhub_token
-cat ~/.dockerhub_token | docker login -u 你的DockerHub用户名 --password-stdin
-rm ~/.dockerhub_token
-```
-
-### 步骤 2：配置 docker-compose.yml
+### 步骤 1：配置 docker-compose.yml
 
 修改 `image` 为你的镜像地址：
 
@@ -62,7 +51,7 @@ services:
     image: ihccccom/nginx:latest
 ```
 
-### 步骤 3：启动
+### 步骤 2：启动
 
 ```bash
 docker compose up -d
@@ -74,7 +63,7 @@ docker compose ps
 docker compose logs -f nginx
 ```
 
-### 步骤 4：验证
+### 步骤 3：验证
 
 ```bash
 # HTTP 测试
@@ -551,14 +540,3 @@ docker exec nginx /opt/nginx/sbin/nginx -V
 ```bash
 docker exec -it nginx /bin/bash
 ```
-
----
-
-## 镜像版本标签
-
-| 标签格式 | 触发条件 | 示例 |
-|---------|---------|------|
-| `latest` | 推送到 main 分支 | `nginx:latest` |
-| `v1.0.0` | 创建 v1.0.0 标签 | `nginx:v1.0.0` |
-| `1.0` | 创建 v1.0.x 标签 | `nginx:1.0` |
-| `nginx-1.28.2` | 所有构建 | `nginx:nginx-1.28.2` |
