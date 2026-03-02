@@ -2,8 +2,6 @@
 
 基于 CIS Docker Benchmark、CIS Nginx Benchmark 标准的 Nginx 安全容器化部署方案。
 
-> 此仓库提供 Docker 使用和部署教程。镜像由 GitHub Actions 自动构建。
-> 编译构建源码请参阅：[mzwrt/copilot](https://github.com/mzwrt/copilot)
 
 ## 快速开始
 
